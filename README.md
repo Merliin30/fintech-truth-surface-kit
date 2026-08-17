@@ -25,6 +25,13 @@ This kit provides reusable checks for those boundaries.
 - `assert_tier_authority`: verify that user tier comes from server authority, not URL parameters or writable cookies.
 - `assert_no_live_execution_without_authorization`: fail closed unless a test explicitly authorizes paper/live-adjacent execution.
 
+## Example use cases
+
+- API contract tests that prevent unavailable financial fields from becoming `0`.
+- Browser smoke tests that fail when production pages contain fixture or demo markers.
+- Auth tests that prove query strings and writable cookies cannot elevate a customer's tier.
+- CI release gates that block live or paper-execution tests unless explicit authorization is present.
+
 ## Installation
 
 ```bash
@@ -49,7 +56,11 @@ assert_unavailable_is_not_zero(payload, fields=["portfolio_pnl"])
 
 ## Security and scope
 
-This repository contains generic safety patterns only. It does not execute trades, connect to exchanges, store secrets, or provide financial advice.
+This repository contains generic safety patterns only. It does not execute trades, connect to exchanges, store secrets, or provide financial advice. See `SECURITY.md` for vulnerability reporting.
+
+## Roadmap
+
+See `ROADMAP.md` for planned helpers and examples.
 
 ## License
 
